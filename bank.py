@@ -21,7 +21,13 @@ class BankAccount:
     return self.balance
 
 class ChildrensAccount:
-  pass
+  def __init__(self):
+    super().__init__()
+    self.interst_rate = 0
+
+  def accumulate_interest(self):
+    self.balance += 10
+    return self.balance
 
 class OverdraftAccount:
   pass
