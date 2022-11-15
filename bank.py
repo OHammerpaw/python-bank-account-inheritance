@@ -1,6 +1,7 @@
 class BankAccount:
-  def __init__(self, balance=0 self.interest_rate= .02):
+  def __init__(self, balance=0, interest_rate= .02):
     self.balance = balance
+    self.interest_rate = interest_rate
 
   def __str__(self):
     status = f"balance: {self.balance}"
@@ -21,9 +22,20 @@ class BankAccount:
     return self.balance
 
 class ChildrensAccount:
-  def __init__(self):
+  def __init__(self,balance=0):
     super().__init__()
     self.interst_rate = 0
+    self.balance = balance
+
+  def deposit(self, amount):
+    if amount < 0: return False
+    self.balance += amount
+    return self.balance
+
+  def withdraw(self, amount):
+    if amount < 0: return False
+    self.balance -= amount
+    return self.balance
 
   def accumulate_interest(self):
     self.balance += 10
