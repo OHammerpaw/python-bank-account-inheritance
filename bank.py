@@ -29,8 +29,22 @@ class ChildrensAccount:
     self.balance += 10
     return self.balance
 
-class OverdraftAccount:
-  pass
+class OverdraftAccount(BankAccount):
+  def __init__(self):
+    self.overdraft_penalty = 40
+    return super().__init__()
+
+  def withdraw(self, amount):
+    result = self.balance - amount
+    if result < 0:
+      self.balance -= 40
+      return False
+
+    super().withdraw(amount)
+
+  def accumulate_interest(self):
+    if self.balance < 0: return False
+    return super().accumulate_interest()
 
 basic_account = BankAccount()
 basic_account.deposit(600)
