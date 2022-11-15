@@ -1,5 +1,24 @@
 class BankAccount:
-  pass
+  def __init__(self, balance=0 self.interest_rate= .02):
+    self.balance = balance
+
+  def __str__(self):
+    status = f"balance: {self.balance}"
+    return status
+
+  def deposit(self, amount):
+    if amount < 0: return False
+    self.balance += amount
+    return self.balance
+
+  def withdraw(self, amount):
+    if amount < 0: return False
+    self.balance -= amount
+    return self.balance
+
+  def accumulate_interest(self):
+    self.balance += self.balance * self.interest_rate
+    return self.balance
 
 class ChildrensAccount:
   pass
